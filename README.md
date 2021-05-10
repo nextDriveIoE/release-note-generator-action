@@ -6,7 +6,7 @@ release-note-generator-action
 
 ```yml
 - name: Generate release note
-  uses: uses: nextdriveioe/release-note-generator-action@master
+  uses: nextdriveioe/release-note-generator-action@master
   with:
     jira_url: https://foo.atlassian.net
     jira_project: 'foo1,foo2,foo3'
