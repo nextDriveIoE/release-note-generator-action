@@ -5,13 +5,13 @@ release-note-generator-action
 ### Usage
 
 ```yml
-- name: Generate release note
+- name: Create release and Generate release note
   uses: nextdriveioe/release-note-generator-action@master
   with:
-    jira_url: https://foo.atlassian.net
-    jira_project: 'foo1,foo2,foo3'
-    jira_username: foo
-    jira_password: token
+    github_token: GITHUB_TOKEN
+    jira_user: JIRA_USER
+    jira_token: JIRA_TOKEN
     base_version: v1.0.1
-    new_version: v1.0.2
+    current_version: v1.0.2
+    configuration_path: '.github/configuration.yml'
 ```
