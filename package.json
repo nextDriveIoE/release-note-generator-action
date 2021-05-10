@@ -1,0 +1,14 @@
+{
+  "name": "release-note-generator-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github-company:nextDriveIoE/release-note-generator-action.git",
+  "author": "amberyoyo <amber.lin@nextdrive.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@nextdriveioe/release-note-generator": "^0.1.4",
+    "js-yaml": "^4.1.0"
+  }
+}

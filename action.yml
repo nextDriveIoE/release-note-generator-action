@@ -1,0 +1,27 @@
+name: 'Release Note Generator Action'
+description: 'Release and generate github issue / jira issue'
+inputs:
+  github_token:
+    description: 'github token'
+    required: true
+  jira_user:
+      description: 'jira user'
+      required: true
+  jira_token:
+    description: 'jira token'
+    required: true
+  base_version:
+    description: 'base version'
+    required: true
+  current_version:
+    description: 'current version'
+    required: true
+  configuration_path:
+    description: 'config path'
+    required: true
+outputs:
+  success:
+    description: 'Generate success'
+runs:
+  using: 'node12'
+  main: 'index.js'
