@@ -69,7 +69,6 @@ async function callGithubRelease(octokit, { current_version, target_commitish })
 }
 
 async function generateReleaseNote(options) {
-    console.info(options);
     const generateCommand = new generator.GenerateCommand()
     await generateCommand.handler(options)
 }
