@@ -38,7 +38,7 @@ async function loadConfigPath(octokit, configPath) {
     });
 
     const configurationContent = Buffer.from(response.data.content, response.data.encoding).toString();
-    return yaml.safeLoad(configurationContent);
+    return yaml.load(configurationContent);
 }
 
 async function callGithubRelease(octokit, releaseOptions) {
