@@ -10,11 +10,12 @@ async function run() {
     const base_version = core.getInput('base_version');
     const current_version = core.getInput('current_version');
     const configPath = core.getInput('configuration_path');
+    const target_commitish = core.getInput('commitish');
 
     try {
         const octokit = github.getOctokit(token)
         const configObject = await loadConfigPath(octokit, configPath);
-        callGithubRelease(octokit, current_version);
+        callGithubRelease(octokit, { current_version, target_commitish });
         generateReleaseNote({
             token,
             username,
@@ -40,12 +41,13 @@ async function loadConfigPath(octokit, configPath) {
     return yaml.safeLoad(configurationContent);
 }
 
-async function callGithubRelease(octokit, current_version) {
+async function callGithubRelease(octokit, releaseOptions) {
     await octokit.request(`POST /repos/${github.context.repo.owner}/${github.context.repo.repo}/releases`, {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
-        tag_name: current_version,
-        name: current_version
+        tag_name: releaseOptions.current_version,
+        name: releaseOptions.current_version,
+        target_commitish: releaseOptions.target_commitish
     })
 
     console.info("SUCCESS RELEASE VERSION: ", current_version);

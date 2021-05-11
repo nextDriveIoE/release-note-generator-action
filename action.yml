@@ -19,6 +19,10 @@ inputs:
   configuration_path:
     description: 'config path'
     required: true
+  commitish:
+    description: 'target commitish'
+    required: false
+    default: master
 outputs:
   success:
     description: 'Generate success'
