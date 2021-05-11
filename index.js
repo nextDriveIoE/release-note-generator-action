@@ -30,7 +30,7 @@ async function run() {
 }
 
 async function loadConfigPath(octokit, configPath) {
-    const response = await octokit.repos.getContent({
+    const response = await octokit.rest.repos.getContent({
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
         path: configPath,
