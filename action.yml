@@ -4,6 +4,12 @@ inputs:
   github_token:
     description: 'github token'
     required: true
+  jira_url:
+    description: 'jira url'
+    required: true
+  jira_project:
+    description: 'jira project'
+    required: true
   jira_user:
       description: 'jira user'
       required: true
@@ -18,11 +24,14 @@ inputs:
     required: true
   configuration_path:
     description: 'config path'
-    required: true
+    required: false
   commitish:
     description: 'target commitish'
     required: false
     default: master
+  github_label:
+    description: 'github label'
+    required: false
 outputs:
   success:
     description: 'Generate success'

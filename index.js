@@ -5,21 +5,33 @@ const yaml = require('js-yaml');
 
 async function run() {
     const token = core.getInput('github_token');
+    const jira = core.getInput('jira_url');
+    const project = core.getInput('jira_project');
     const username = core.getInput('jira_user');
     const password = core.getInput('jira_token');
     const base_version = core.getInput('base_version');
     const current_version = core.getInput('current_version');
     const configPath = core.getInput('configuration_path');
     const target_commitish = core.getInput('commitish');
+    const label = core.getInput('github_label');
 
     try {
-        const octokit = github.getOctokit(token)
-        const configObject = await loadConfigPath(octokit, configPath);
+        const octokit = github.getOctokit(token);
+
+        let configObject = {};
+        if (configPath) {
+            configObject = await loadConfigPath(octokit, configPath);
+        }
+
         callGithubRelease(octokit, { current_version, target_commitish });
         generateReleaseNote({
             token,
+            jira,
+            project,
             username,
             password,
+            label,
+            repo: `${github.context.repo.owner}/${github.context.repo.repo}`,
             start: base_version,
             end: current_version,
             ...configObject
