@@ -15,6 +15,9 @@ async function run() {
     const target_commitish = core.getInput('commitish');
     const label = core.getInput('github_label');
 
+    console.info("base_version:", base_version);
+    console.info("current_version:", current_version);
+
     try {
         const octokit = github.getOctokit(token);
 
@@ -53,13 +56,13 @@ async function loadConfigPath(octokit, configPath) {
     return yaml.load(configurationContent);
 }
 
-async function callGithubRelease(octokit, releaseOptions) {
+async function callGithubRelease(octokit, { current_version, target_commitish }) {
     await octokit.request(`POST /repos/${github.context.repo.owner}/${github.context.repo.repo}/releases`, {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
-        tag_name: releaseOptions.current_version,
-        name: releaseOptions.current_version,
-        target_commitish: releaseOptions.target_commitish
+        tag_name: current_version,
+        name: current_version,
+        target_commitish
     })
 
     console.info("SUCCESS RELEASE VERSION: ", current_version);
