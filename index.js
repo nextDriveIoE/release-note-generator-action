@@ -23,8 +23,8 @@ async function run() {
             configObject = await loadConfigPath(octokit, configPath);
         }
 
-        callGithubRelease(octokit, { current_version, target_commitish });
-        generateReleaseNote({
+        await callGithubRelease(octokit, { current_version, target_commitish });
+        await generateReleaseNote({
             token,
             jira,
             project,
@@ -65,9 +65,10 @@ async function callGithubRelease(octokit, releaseOptions) {
     console.info("SUCCESS RELEASE VERSION: ", current_version);
 }
 
-function generateReleaseNote(options) {
+async function generateReleaseNote(options) {
+    console.info(options);
     const generateCommand = new generator.GenerateCommand()
-    generateCommand.handler(options)
+    await generateCommand.handler(options)
 }
 
 run()
