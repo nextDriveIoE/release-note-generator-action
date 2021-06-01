@@ -17,6 +17,8 @@ async function run() {
 
     console.info("base_version:", base_version);
     console.info("current_version:", current_version);
+    console.info("project:", project);
+    console.info("label:", label);
 
     try {
         const octokit = github.getOctokit(token);
