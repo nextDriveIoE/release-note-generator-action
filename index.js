@@ -58,6 +58,7 @@ async function loadConfigPath(octokit, configPath) {
 }
 
 async function callGithubRelease(octokit, { current_version }) {
+    console.info("target_commitish", github.context.sha)
     await octokit.request(`POST /repos/${github.context.repo.owner}/${github.context.repo.repo}/releases`, {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
