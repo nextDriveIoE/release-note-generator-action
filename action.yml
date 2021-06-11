@@ -25,10 +25,6 @@ inputs:
   configuration_path:
     description: 'config path'
     required: false
-  commitish:
-    description: 'target commitish'
-    required: false
-    default: master
   github_label:
     description: 'github label'
     required: false
