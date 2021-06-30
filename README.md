@@ -20,6 +20,5 @@ release-note-generator-action
 ### other options
 ```yml
   configuration_path: ./github/config.yml
-  commitish: master
   github_label: GITHUB_LABEL
 ```
