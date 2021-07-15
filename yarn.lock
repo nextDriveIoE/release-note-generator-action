@@ -24,10 +24,10 @@
   dependencies:
     tunnel "0.0.6"
 
-"@nextdriveioe/release-note-generator@^0.1.4":
-  version "0.1.4"
-  resolved "https://npm.pkg.github.com/download/@nextdriveioe/release-note-generator/0.1.4/be0e7cd887809320b58900a54a98e845564bc14c68fc1af36ea79cfbeebfae30#467a749ffb3c806c1fbe1a10e23627454cfbfa20"
-  integrity sha512-YQHryssMsqhNYkoXcdwdeKpAV4Z6kbS+Zv/MypRbjwl8B0DTM3W6dW1pCABiD7BCP8CkGcgCbRIZK0jYDVEZxw==
+"@nextdriveioe/release-note-generator@0.1.5":
+  version "0.1.5"
+  resolved "https://npm.pkg.github.com/download/@nextdriveioe/release-note-generator/0.1.5/a1219ea192ba14ac9767453c4564523946d76f93814a081f36bfd1eff47fb796#8cb4cf9ffa0626330c787a7235fc6bbce2be2e18"
+  integrity sha512-2gCjeCyjR2ndmwMeM0G3UJG+cfpyQPoJnUj/j0ojIdYsXDp9G6Pf8+M+1qHDP89JSWWy6QaMXXwNT1oBefEdNw==
   dependencies:
     axios "^0.20.0"
     config "^3.3.2"
