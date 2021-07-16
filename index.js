@@ -43,15 +43,20 @@ async function run() {
             ...configObject
         })
 
-        await syncJiraRelease({
-            repo: `${github.context.repo.owner}/${github.context.repo.repo}`,
-            token,
-            tag: current_version,
-            jira,
-            project: releaseProject ? releaseProject : project.split(",")[0],
-            username,
-            password
-        })
+        if (releaseProject) {
+            await syncJiraRelease({
+                repo: `${github.context.repo.owner}/${github.context.repo.repo}`,
+                token,
+                tag: current_version,
+                jira,
+                project: releaseProject,
+                username,
+                password
+            })
+        } else {
+            console.warn("jira_release_project not setting, skip sync:jira release stage")
+        }
+
     } catch (e) {
         console.error(e);
     }
