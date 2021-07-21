@@ -24,10 +24,10 @@
   dependencies:
     tunnel "0.0.6"
 
-"@nextdriveioe/release-note-generator@0.2.0":
-  version "0.2.0"
-  resolved "https://npm.pkg.github.com/download/@nextdriveioe/release-note-generator/0.2.0/178091af7bb98327afcf66e28311aa459724b6b87499e0ecd0906b8aa12387cb#b6195bf6f3bd1a9e11ece4c5b9465bd2301fcd94"
-  integrity sha512-GRPXmpUhIetnhXkgbNQobJWFtTYQju887wN2TVwqSw/Ugt/jBhDg0mf+CFiTI92nfmhcvL44pVSsG5FlZcamNw==
+"@nextdriveioe/release-note-generator@0.2.1":
+  version "0.2.1"
+  resolved "https://npm.pkg.github.com/download/@nextdriveioe/release-note-generator/0.2.1/384b162c30b29268dbc8f1cf2221ec02ba172b1ccb8bb6d81afe92fc616d8f99#f0380519c019026e2c9133eb97f57982f1dd40ac"
+  integrity sha512-2Y6YGr/YXXAENJnOb8kILqfKdvevMErmzcGhLaRTIwqHToeFhX3MzGw1sTFmqyiMQi6gxhvceJ4p3itTrTap1g==
   dependencies:
     "@octokit/core" "^3.5.1"
     axios "^0.20.0"
@@ -35,6 +35,7 @@
     date-fns "^2.22.1"
     git-patch-parser "^0.2.1"
     issue-regex "^3.1.0"
+    lodash "^4.17.21"
     yargs "^16.1.0"
 
 "@octokit/auth-token@^2.4.4":
@@ -289,6 +290,11 @@ json5@^2.1.1:
   integrity sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==
   dependencies:
     minimist "^1.2.5"
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 minimist@^1.2.5:
   version "1.2.5"
