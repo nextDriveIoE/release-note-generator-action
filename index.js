@@ -7,7 +7,6 @@ async function run() {
     const token = core.getInput('github_token');
     const jira = core.getInput('jira_url');
     const project = core.getInput('jira_project');
-    const releaseProject = core.getInput('jira_release_project');
     const username = core.getInput('jira_user');
     const password = core.getInput('jira_token');
     const base_version = core.getInput('base_version');
@@ -17,8 +16,7 @@ async function run() {
 
     console.info("base_version:", base_version);
     console.info("current_version:", current_version);
-    console.info("jira_project:", project);
-    console.info("jira_release_project:", releaseProject);
+    console.info("project:", project);
     console.info("label:", label);
 
     try {
@@ -43,19 +41,14 @@ async function run() {
             ...configObject
         })
 
-        if (releaseProject) {
-            await syncJiraRelease({
-                repo: `${github.context.repo.owner}/${github.context.repo.repo}`,
-                token,
-                tag: current_version,
-                jira,
-                project: releaseProject,
-                username,
-                password
-            })
-        } else {
-            console.warn("jira_release_project not setting, skip sync:jira release stage")
-        }
+        await syncJiraRelease({
+            repo: `${github.context.repo.owner}/${github.context.repo.repo}`,
+            token,
+            tag: current_version,
+            jira,
+            username,
+            password
+        })
 
     } catch (e) {
         console.error(e);
