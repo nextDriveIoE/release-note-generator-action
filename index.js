@@ -1,5 +1,6 @@
 const generator = require('@nextdriveioe/release-note-generator');
 const core = require('@actions/core');
+const axios = require('axios');
 const github = require('@actions/github');
 const yaml = require('js-yaml');
 
