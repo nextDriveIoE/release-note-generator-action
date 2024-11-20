@@ -2,6 +2,7 @@ const generator = require('@nextdriveioe/release-note-generator');
 const core = require('@actions/core');
 const github = require('@actions/github');
 const yaml = require('js-yaml');
+import { getJiraReleaseUrl } from './getJiraReleaseUrl';
 
 async function run() {
     const token = core.getInput('github_token');
@@ -49,6 +50,15 @@ async function run() {
             username,
             password
         })
+
+        const url = await getJiraReleaseUrl(
+            jira,
+            username,
+            password,
+            project.split(',')[0],
+            `${github.context.repo.repo} ${current_version}`
+        );
+        core.setOutput('jira_release_url', url);
 
     } catch (e) {
         console.error(e);
