@@ -7,6 +7,7 @@ release-note-generator-action
 ```yml
 - name: Create release and Generate release note
   uses: nextdriveioe/release-note-generator-action@master
+  id: jira_release
   with:
     github_token: GITHUB_TOKEN
     jira_url: JIRA_URL
@@ -15,6 +16,9 @@ release-note-generator-action
     jira_token: JIRA_TOKEN
     base_version: v1.0.1
     current_version: v1.0.2
+- name: Use Release URL
+  run: |
+    echo "Release URL: ${{ steps.jira_release.outputs.jira_release_url }}"
 ```
 
 ### other options
