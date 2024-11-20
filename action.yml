@@ -31,6 +31,8 @@ inputs:
 outputs:
   success:
     description: 'Generate success'
+  jira_release_url:
+    description: 'release url of jira'
 runs:
   using: 'node12'
   main: 'index.js'
