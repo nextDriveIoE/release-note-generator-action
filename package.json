@@ -9,6 +9,7 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@nextdriveioe/release-note-generator": "0.4.0",
+    "axios": "^1.7.7",
     "js-yaml": "^4.1.0"
   }
 }
